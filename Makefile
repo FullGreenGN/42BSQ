@@ -17,15 +17,13 @@ OBJS		=	$(SRCS:.c=.o)
 
 all			:	$(NAME)
 
-$(NAME)		:	$(OBJS) $(LIBFT) $(HEADER)
-				$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)
+$(NAME)		:	$(OBJS) $(HEADER)
+				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean		:
 				rm -rf $(OBJS)
-				make clean -C ./libft
 
 fclean		:	clean
 				rm $(NAME)
-				make fclean -C ./libft
 
 re			:	fclean all
