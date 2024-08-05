@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_int_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 16:40:17 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/07/31 16:40:23 by fullgreen        ###   ########.fr       */
+/*   Created: 2024/07/31 16:41:00 by fullgreen         #+#    #+#             */
+/*   Updated: 2024/08/05 15:43:55 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+///////////////////////////////////////////////////////////////////
+//  swap two int values
+void    ft_swap(int *a, int *b)
 {
-	int	i;
+    int temp;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+    temp = *a;
+    *a = *b;
+    *b = temp;
 }
