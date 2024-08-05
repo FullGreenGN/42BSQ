@@ -12,12 +12,13 @@ SRCS		=	srcs/main.c \
 					srcs/utils/ft_strcmp.c \
 					srcs/utils/ft_strlen.c \
 					srcs/utils/ft_swap.c \
+					srcs/utils/ft_files.c \
 
 OBJS		=	$(SRCS:.c=.o)
 
 all			:	$(NAME)
 
-$(NAME)		:	$(OBJS) $(HEADER)
+$(NAME)		:	$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean		:
