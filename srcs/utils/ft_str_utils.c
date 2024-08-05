@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:28:02 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/05 15:43:57 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/05 16:39:35 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,19 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	diff = s1[i] - s2[i];
 	return (diff);
+}
+
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < n)
+	{
+        int diff = (unsigned char)s1[i] - (unsigned char)s2[i];
+        if (diff != 0 || s1[i] == '\0')
+            return diff;
+		i++;
+    }
+    return 0;
 }
