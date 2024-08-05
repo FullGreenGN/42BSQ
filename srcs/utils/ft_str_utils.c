@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:28:02 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/05 16:40:43 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/05 17:37:48 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,25 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		i++;
     }
     return 0;
+}
+int	ft_atoi(const char *str)
+{
+	int	res;
+	int	negative;
+
+	negative = 1;
+	res = 0;
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t'
+			|| *str == '\v' || *str == '\f' || *str == '\r'))
+		++str;
+	if (*str == '-')
+		negative = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - 48);
+		++str;
+	}
+	return (res * negative);
 }
