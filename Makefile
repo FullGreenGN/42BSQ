@@ -2,13 +2,16 @@ NAME		=	bsq
 
 HEADER		=	./includes/
 
-LIBFT		=	libft/libft.a
-
 CC			=	gcc
 
 CFLAGS		=	-Werror -Wall -Wextra -g -I $(HEADER)
 
 SRCS		=	srcs/main.c \
+					srcs/utils/ft_putchar.c \
+					srcs/utils/ft_putstr.c \
+					srcs/utils/ft_strcmp.c \
+					srcs/utils/ft_strlen.c \
+					srcs/utils/ft_swap.c \
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -16,9 +19,6 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJS) $(LIBFT) $(HEADER)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)
-
-$(LIBFT)	:
-				make -C ./libft
 
 clean		:
 				rm -rf $(OBJS)
