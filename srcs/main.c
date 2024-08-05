@@ -3,20 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:54:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/05 15:22:44 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/05 18:06:33 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "../includes/bsq.h"
 
-int    ft_strlen(char *str);
-char	*file_to_string(const char *file_path);
-int	overwrite_file_with_string(const char *file_path, char *file_content);
+int				ft_strlen(char *str);
+char			*file_to_string(const char *file_path);
+char			**ft_split(char *str, char *charset);
+int				overwrite_file_with_string(const char *file_path, char *file_content);
+t_args_data		string_args(char *strn, t_args_data data);
 
 int main(int ac, char **av)
 {
@@ -26,11 +29,11 @@ int main(int ac, char **av)
         return (1);
     }
 
-    
     char *str = file_to_string(av[1]);
-    str[10] = 'B';
-    overwrite_file_with_string(av[1], str);
-    char *str2 = file_to_string(av[1]);
-    printf("%s", str2);
+    //char **tab = ft_split(&str[5], "\n");
+    printf("str: %s\n", str);
+    t_args_data data = {0};
+    data = string_args(str, data);
+    printf("nb_lines: %d\n", data.nb_lines);
     return (ac);
 }

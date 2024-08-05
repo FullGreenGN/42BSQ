@@ -8,8 +8,8 @@ CFLAGS		=	-Werror -Wall -Wextra -g -I $(HEADER)
 
 SRCS		=	srcs/main.c \
 					srcs/utils/ft_str_utils.c \
-					srcs/utils/ft_int_utils.c \
-					srcs/utils/ft_int_utils2.c \
+					srcs/utils/ft_str_utils2.c \
+					srcs/utils/ft_square.c \
 					srcs/utils/ft_files.c \
 
 OBJS		=	$(SRCS:.c=.o)

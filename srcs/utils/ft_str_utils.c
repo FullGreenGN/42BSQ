@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:28:02 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/05 17:37:48 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/05 18:08:06 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,7 @@ void	ft_putstr(char *str)
 }
 
 ///////////////////////////////////////////////////////////////////
-// compare two strings with n bytes
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < n)
-	{
-        int diff = (unsigned char)s1[i] - (unsigned char)s2[i];
-        if (diff != 0 || s1[i] == '\0')
-            return diff;
-		i++;
-    }
-    return 0;
-}
+// convert str to int
 int	ft_atoi(const char *str)
 {
 	int	res;
