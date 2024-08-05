@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:28:02 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/05 16:39:35 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/05 16:40:43 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,7 @@ void	ft_putstr(char *str)
 }
 
 ///////////////////////////////////////////////////////////////////
-// compare two strings
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-	char	diff;
-	i = 0;
-	diff = 0;
-	while (s1[i] && s2[i])
-	{
-		diff = s1[i] - s2[i];
-		i++;
-		if (diff != 0)
-			return (diff);
-	}
-	diff = s1[i] - s2[i];
-	return (diff);
-}
-
+// compare two strings with n bytes
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
