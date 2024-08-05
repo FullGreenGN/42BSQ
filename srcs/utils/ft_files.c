@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_files.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:01:53 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/05 16:18:54 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/05 16:51:57 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
