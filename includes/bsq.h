@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 15:53:57 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 16:17:55 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char			*ft_strjoin(char **map);
 char			*file_to_string(const char *file_path);
 char			**ft_split(char *str, char *charset);
 char			*ft_strcat(char *dest, char *src);
+char			*stdin_to_string(void);
 int				ft_strlen(char *str);
 void			ft_putstr(char *str);
 void			ft_putchar(char c);

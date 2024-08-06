@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_files.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:01:53 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 14:49:25 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 16:17:41 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,34 @@ char	*file_to_string(const char *file_path)
 	file_content[size] = '\0';
 	close(fd);
 	return (file_content);
+}
+
+///////////////////////////////////////////////////////////////////
+// use stdin if no file_path
+char	*stdin_to_string(void)
+{
+	char *input;
+	char buffer[1024];
+	int bytes_read;
+	int total_bytes;
+	int i;
+
+	i = 0;
+	input = (char *)malloc(1);
+	input[0] = '\0';
+	total_bytes = 0;
+
+	while ((bytes_read = read(0, buffer, 1023)) > 0)
+	{
+		buffer[bytes_read] = '\0';
+		input = (char *)realloc(input, total_bytes + bytes_read + 1);
+		while (i < bytes_read)
+		{
+			input[total_bytes + i] = buffer[i];
+			i++;
+		}
+		total_bytes += bytes_read;
+		input[total_bytes] = '\0';
+	}
+	return input;
 }
