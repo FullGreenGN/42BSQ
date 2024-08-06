@@ -6,11 +6,14 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:18:19 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/05 16:51:59 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 12:41:29 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+char	*ft_strcat(char *dest, char *src);
+int	ft_strlen(char *str);
 
 ///////////////////////////////////////////////////////////////////
 // check if a str contain char c ex: c -> [a, b, c] -> yes
@@ -112,3 +115,30 @@ char	**ft_split(char *str, char *charset)
 	}
 	return (result);
 }
+
+///////////////////////////////////////////////////////////////////
+// strjoin with a separator
+char	*ft_strjoin(char **map)
+{
+	char	*result;
+	int		i;
+	int		size;
+
+	i = 0;
+	size = 0;
+	while (map[i])
+	{
+		size += ft_strlen(map[i]);
+		i++;
+	}
+	result = malloc(size + i);
+	i = 0;
+	while (map[i])
+	{
+		ft_strcat(result, map[i]);
+		i++;
+	}
+	result[size + i] = '\0';
+	return (result);
+}
+

@@ -6,7 +6,7 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:28:02 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/05 18:08:06 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 12:41:11 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,22 @@ int	ft_atoi(const char *str)
 		++str;
 	}
 	return (res * negative);
+}
+
+///////////////////////////////////////////////////////////////////
+// copy src to dest
+char	*ft_strcat(char *dest, char *src)
+{
+	int		i;
+	int		dest_l;
+
+	dest_l = ft_strlen(dest);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[dest_l + i] = src[i];
+		i++;
+	}
+	dest[dest_l + i] = '\n';
+	return (dest);
 }
