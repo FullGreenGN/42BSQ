@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 15:46:39 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 15:53:57 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ char			*ft_strcat(char *dest, char *src);
 int				ft_strlen(char *str);
 void			ft_putstr(char *str);
 void			ft_putchar(char c);
-void			fill_dp(int **dp, char **lines, t_args_data data, t_map_data *map);
+void			fill_dp(int **dp, char **lines, t_args_data data,
+					t_map_data *map);
 void			fill_lines(char **lines, t_args_data data, t_map_data *map);
 int				ft_contain(char *str, char c);
 int				nb_word(char *str, char *charset);
