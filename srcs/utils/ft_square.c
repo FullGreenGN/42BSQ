@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 12:42:30 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 12:44:35 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	**ft_split(char *str, char *charset);
 int		nb_word(char *str, char *charset);
 int		ft_atoi(const char *str);
 int		ft_strlen(char *str);
+int		min(int a, int b, int c);
 
 ///////////////////////////////////////////////////////////////////
 // create a square of x * y with char c
