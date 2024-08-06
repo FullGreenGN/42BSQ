@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_files.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:01:53 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 16:26:25 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 16:32:10 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ int	file_size(const char *file_path)
 
 	total_bytes = 0;
 	fd = open(file_path, O_RDONLY);
+	if (fd == -1)
+		return (-1);
 	bytes_read = read(fd, buffer, sizeof(buffer));
 	while (bytes_read > 0)
 	{
-		bytes_read = read(fd, buffer, sizeof(buffer));
 		total_bytes += bytes_read;
+		bytes_read = read(fd, buffer, sizeof(buffer));
 	}
 	if (bytes_read == -1)
 	{
@@ -50,6 +52,8 @@ char	*file_to_string(const char *file_path)
 	int		size;
 
 	size = file_size(file_path);
+	if (size == -1)
+		return (NULL);
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
