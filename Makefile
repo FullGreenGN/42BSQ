@@ -17,15 +17,23 @@ SRCS		=	srcs/main.c \
 
 OBJS		=	$(SRCS:.c=.o)
 
-all			:	$(NAME)
+RESET = \033[0m
+PURPLE = \033[1;35m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
 
-$(NAME)		:	$(OBJS)
-				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+all: $(NAME)
 
-clean		:
-				rm -rf $(OBJS)
+$(NAME):	$(OBJS)
+			$(CC) -o $(NAME) $(OBJS) $(CFLAGS)
+clean:
+	@echo "$(YELLOW)Deleting objects files...$(RESET)"
+	@rm -rf $(OBJS)
+	@echo "$(GREEN)Object files (based in 'src/') have been deleted !$(RESET)"
 
-fclean		:	clean
-				rm $(NAME)
+fclean: clean
+	@echo "$(YELLOW)Deleting executable...$(RESET)"
+	@rm -f $(NAME)
+	@echo "$(GREEN)The executable '$(NAME)' has been deleted !$(RESET)"
 
-re			:	fclean all
+.PHONY: re fclean clean
