@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 14:41:51 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 14:49:44 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_args_data	string_args(char *str, t_args_data data)
 	i = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
+	data.nb_lines_size = i;
 	data.empty = str[i];
 	i++;
 	data.obstacle = str[i];
@@ -75,22 +76,23 @@ int	**initialize_dp(int nb_lines, int cols)
 
 ///////////////////////////////////////////////////////////////////
 // process the map and return the filled map
-char	**process_map(char *map)
+char	**process_map(char *str, t_args_data data)
 {
-	t_args_data	data;
-	t_map_data	map_data;
 	char		**lines;
 	int			cols;
 	int			**dp;
+	int			max_size;
+	int			max_i;
+	int			max_j;
 
-	data = string_args(map, (t_args_data){0});
-	lines = ft_split(map, "\n");
+	lines = ft_split(str, "\n");
 	cols = ft_strlen(lines[1]);
 	dp = initialize_dp(data.nb_lines, cols);
-	map_data.max_size = 0;
-	map_data.max_i = 0;
-	map_data.max_j = 0;
-	fill_dp(dp, lines, data, map_data);
-	fill_lines(lines, data, map_data);
+	max_size = 0;
+	max_i = 0;
+	max_j = 0;
+	fill_dp(dp, lines, data, &max_size, &max_i, &max_j);
+	fill_lines(lines, data, max_size, max_i, max_j);
 	return (lines);
 }
+

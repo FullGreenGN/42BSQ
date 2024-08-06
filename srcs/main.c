@@ -6,7 +6,7 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:54:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 14:29:22 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 14:42:16 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int ac, char **av)
     char    *base_str;
 	char	*end_str;
     char	**rmap;
+	t_args_data	data;
 	int		i;
 
     if (ac < 2)
@@ -31,10 +32,11 @@ int main(int ac, char **av)
 	while (i < ac)
 	{
 		base_str = file_to_string(av[i]);
-		rmap = process_map(base_str);
+		data = string_args(base_str, (t_args_data){0});
+		rmap = process_map(base_str, data);
 		end_str = malloc(ft_strlen(base_str) + 1);
 		end_str = ft_strjoin(rmap);
-		ft_putstr(end_str);
+		ft_putstr(&end_str[4 + data.nb_lines_size]);
 		ft_putstr("\n");
 		i++;
 	}

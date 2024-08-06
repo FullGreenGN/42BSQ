@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 14:43:23 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 14:47:21 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_result_pos
 	int		end[2];
 }					t_result_pos;
 
-char			**process_map(char *map);
+char			**process_map(char *str, t_args_data data);
 char			*ft_strjoin(char **map);
 char			*file_to_string(const char *file_path);
 char			**ft_split(char *str, char *charset);
