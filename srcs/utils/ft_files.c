@@ -6,13 +6,14 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 15:01:53 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 14:19:06 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 14:23:03 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <bsq.h>
 
 ///////////////////////////////////////////////////////////////////
 // count size of file_path (in bytes)

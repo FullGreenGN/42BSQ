@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 14:21:19 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 14:22:57 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
-#include "../includes/bsq.h"
+#include <bsq.h>
 
 ///////////////////////////////////////////////////////////////////
 // create a square of x * y with char c
