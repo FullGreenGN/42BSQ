@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 12:44:35 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 12:45:49 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,20 @@ t_args_data	string_args(char *str, t_args_data data)
 	data.filler = str[i];
 	return (data);
 }
+int	**initialize_dp(int nb_lines, int cols)
+{
+	int	**dp;
+	int	i;
+
+	dp = (int **)malloc(nb_lines * sizeof(int *));
+	i = 0;
+	while (i < nb_lines)
+	{
+		dp[i] = (int *)malloc(cols * sizeof(int));
+		i++;
+	}
+	return (dp);
+}
 
 char	**process_map(char *map)
 {
@@ -84,21 +98,6 @@ char	**process_map(char *map)
 	fill_dp(dp, lines, data, &max_size, &max_i, &max_j);
 	fill_lines(lines, dp, data, max_size, max_i, max_j);
 	return (lines);
-}
-
-int	**initialize_dp(int nb_lines, int cols)
-{
-	int	**dp;
-	int	i;
-
-	dp = (int **)malloc(nb_lines * sizeof(int *));
-	i = 0;
-	while (i < nb_lines)
-	{
-		dp[i] = (int *)malloc(cols * sizeof(int));
-		i++;
-	}
-	return (dp);
 }
 
 void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i, int *max_j)
