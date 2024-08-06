@@ -6,7 +6,7 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:54:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 12:41:58 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 14:05:19 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int main(int ac, char **av)
     rmap = process_map(base_str);
 	end_str = malloc(ft_strlen(base_str) + 1);
     end_str = ft_strjoin(rmap);
-	overwrite_file_with_string(av[1], end_str);
+	printf("%s", end_str);
     return (ac);
 }

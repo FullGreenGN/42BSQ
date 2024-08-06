@@ -6,14 +6,14 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:18:19 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 12:41:29 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 13:18:10 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 char	*ft_strcat(char *dest, char *src);
-int	ft_strlen(char *str);
+int		ft_strlen(char *str);
 
 ///////////////////////////////////////////////////////////////////
 // check if a str contain char c ex: c -> [a, b, c] -> yes
