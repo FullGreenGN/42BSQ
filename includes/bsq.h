@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 14:29:34 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 14:43:23 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ typedef struct s_rgs_data
 
 typedef struct s_map_data
 {
-	char			**map;
+	int				*max_size;
+	int				*max_i;
+	int				*max_j;
 	int				nb_lines;
 	int				nb_cols;
 }					t_map_data;
@@ -45,6 +47,9 @@ char			*ft_strcat(char *dest, char *src);
 int				ft_strlen(char *str);
 void			ft_putstr(char *str);
 void			ft_putchar(char c);
+void			fill_dp(int **dp, char **lines, t_args_data data,
+					t_map_data map_data);
+void			fill_lines(char **lines, t_args_data data, t_map_data map_data);
 int				ft_contain(char *str, char c);
 int				overwrite_file_with_string(const char *file_path,
 					char *file_content);
