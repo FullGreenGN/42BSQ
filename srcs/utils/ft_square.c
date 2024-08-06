@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 12:45:49 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 12:46:32 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,28 +78,6 @@ int	**initialize_dp(int nb_lines, int cols)
 	return (dp);
 }
 
-char	**process_map(char *map)
-{
-	t_args_data	data;
-	char		**lines;
-	int			cols;
-	int			**dp;
-	int			max_size;
-	int			max_i;
-	int			max_j;
-
-	data = string_args(map, (t_args_data){0});
-	lines = ft_split(map, "\n");
-	cols = ft_strlen(lines[1]);
-	dp = initialize_dp(data.nb_lines, cols);
-	max_size = 0;
-	max_i = 0;
-	max_j = 0;
-	fill_dp(dp, lines, data, &max_size, &max_i, &max_j);
-	fill_lines(lines, dp, data, max_size, max_i, max_j);
-	return (lines);
-}
-
 void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i, int *max_j)
 {
 	int	i;
@@ -132,7 +110,7 @@ void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i
 	}
 }
 
-void	fill_lines(char **lines, int **dp, t_args_data data, int max_size, int max_i, int max_j)
+void	fill_lines(char **lines, t_args_data data, int max_size, int max_i, int max_j)
 {
 	int	i;
 	int	j;
@@ -148,4 +126,26 @@ void	fill_lines(char **lines, int **dp, t_args_data data, int max_size, int max_
 		}
 		i--;
 	}
+}
+
+char	**process_map(char *map)
+{
+	t_args_data	data;
+	char		**lines;
+	int			cols;
+	int			**dp;
+	int			max_size;
+	int			max_i;
+	int			max_j;
+
+	data = string_args(map, (t_args_data){0});
+	lines = ft_split(map, "\n");
+	cols = ft_strlen(lines[1]);
+	dp = initialize_dp(data.nb_lines, cols);
+	max_size = 0;
+	max_i = 0;
+	max_j = 0;
+	fill_dp(dp, lines, data, &max_size, &max_i, &max_j);
+	fill_lines(lines, data, max_size, max_i, max_j);
+	return (lines);
 }
