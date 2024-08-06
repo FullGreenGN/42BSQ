@@ -6,7 +6,7 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 14:49:44 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 15:23:52 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,16 @@ t_args_data	string_args(char *str, t_args_data data)
 	while (str[i] >= '0' && str[i] <= '9')
 		i++;
 	data.nb_lines_size = i;
+	if (str[i] == '\0')
+		return (data = (t_args_data){0});
 	data.empty = str[i];
 	i++;
+	if (str[i] == '\0' || data.empty == str[i])
+		return (data = (t_args_data){0});
 	data.obstacle = str[i];
 	i++;
+	if (str[i] == '\0' || data.empty == str[i] || data.obstacle == str[i])
+		return (data = (t_args_data){0});
 	data.filler = str[i];
 	return (data);
 }
