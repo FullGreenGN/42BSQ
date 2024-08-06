@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:54:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 14:05:19 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 14:18:54 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int ac, char **av)
 
     if (ac != 2)
     {
-        write(2, "Usage: <file_path>\n", ft_strlen("Usage: %s <file_path>\n"));
+        write(2, "Usage: <file_path>\n", ft_strlen("Usage: <file_path>\n"));
         return (1);
     }
 	base_str = file_to_string(av[1]);

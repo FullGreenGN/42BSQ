@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 12:46:32 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 14:21:19 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@
 #include <fcntl.h>
 #include <string.h>
 #include "../includes/bsq.h"
-
-#define BUF_SIZE 4096
-
-char	**ft_split(char *str, char *charset);
-int		nb_word(char *str, char *charset);
-int		ft_atoi(const char *str);
-int		ft_strlen(char *str);
-int		min(int a, int b, int c);
 
 ///////////////////////////////////////////////////////////////////
 // create a square of x * y with char c
@@ -63,6 +55,8 @@ t_args_data	string_args(char *str, t_args_data data)
 	data.filler = str[i];
 	return (data);
 }
+///////////////////////////////////////////////////////////////////
+// initialize a 2D array of integers
 int	**initialize_dp(int nb_lines, int cols)
 {
 	int	**dp;
@@ -77,7 +71,8 @@ int	**initialize_dp(int nb_lines, int cols)
 	}
 	return (dp);
 }
-
+///////////////////////////////////////////////////////////////////
+// fill the 2D array with the size of the biggest square
 void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i, int *max_j)
 {
 	int	i;
@@ -110,6 +105,8 @@ void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i
 	}
 }
 
+///////////////////////////////////////////////////////////////////
+// fill the lines with the filler character
 void	fill_lines(char **lines, t_args_data data, int max_size, int max_i, int max_j)
 {
 	int	i;
@@ -128,6 +125,8 @@ void	fill_lines(char **lines, t_args_data data, int max_size, int max_i, int max
 	}
 }
 
+///////////////////////////////////////////////////////////////////
+// process the map and return the filled map
 char	**process_map(char *map)
 {
 	t_args_data	data;

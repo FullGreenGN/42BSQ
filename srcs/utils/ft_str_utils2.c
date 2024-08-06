@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:18:19 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 13:18:10 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 14:21:43 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-char	*ft_strcat(char *dest, char *src);
-int		ft_strlen(char *str);
 
 ///////////////////////////////////////////////////////////////////
 // check if a str contain char c ex: c -> [a, b, c] -> yes
