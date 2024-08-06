@@ -13,6 +13,7 @@ SRCS		=	srcs/main.c \
 					srcs/utils/ft_files.c \
 					srcs/utils/ft_int_utils.c \
 					srcs/utils/ft_draw.c \
+					srcs/utils/ft_stdin.c \
 
 OBJS		=	$(SRCS:.c=.o)
 
