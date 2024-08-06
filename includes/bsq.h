@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 14:28:39 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 14:29:34 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ char			*file_to_string(const char *file_path);
 char			**ft_split(char *str, char *charset);
 char			*ft_strcat(char *dest, char *src);
 int				ft_strlen(char *str);
+void			ft_putstr(char *str);
+void			ft_putchar(char c);
+int				ft_contain(char *str, char c);
 int				overwrite_file_with_string(const char *file_path,
 					char *file_content);
 int				nb_word(char *str, char *charset);
