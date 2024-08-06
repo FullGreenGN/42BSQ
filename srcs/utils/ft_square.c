@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 12:28:59 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 12:42:30 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int		ft_strlen(char *str);
 // create a square of x * y with char c
 char	**ft_square(char **map, int x, int y, char c)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < x)
@@ -47,13 +47,13 @@ char	**ft_square(char **map, int x, int y, char c)
 
 ///////////////////////////////////////////////////////////////////
 // scrap 4 arguments at the start of a string
-t_args_data    string_args(char *str, t_args_data data)
+t_args_data	string_args(char *str, t_args_data data)
 {
-	int i;
+	int	i;
 
 	data.nb_lines = ft_atoi(str);
 	i = 0;
-	while(str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 		i++;
 	data.empty = str[i];
 	i++;
@@ -63,33 +63,53 @@ t_args_data    string_args(char *str, t_args_data data)
 	return (data);
 }
 
-int min(int a, int b, int c) {
-	if (a < b) {
-		return (a < c) ? a : c;
-	} else {
-		return (b < c) ? b : c;
-	}
+char	**process_map(char *map)
+{
+	t_args_data	data;
+	char		**lines;
+	int			cols;
+	int			**dp;
+	int			max_size;
+	int			max_i;
+	int			max_j;
+
+	data = string_args(map, (t_args_data){0});
+	lines = ft_split(map, "\n");
+	cols = ft_strlen(lines[1]);
+	dp = initialize_dp(data.nb_lines, cols);
+	max_size = 0;
+	max_i = 0;
+	max_j = 0;
+	fill_dp(dp, lines, data, &max_size, &max_i, &max_j);
+	fill_lines(lines, dp, data, max_size, max_i, max_j);
+	return (lines);
 }
 
-char	**process_map(char *map) {
-	t_args_data data = string_args(map, (t_args_data){0});
-	char **lines = ft_split(map, "\n");
-	int cols = ft_strlen(lines[1]);
-	int **dp = (int **)malloc(data.nb_lines * sizeof(int *));
-	int i = 0;
-	int j = 0;
-	while (i < data.nb_lines)
+int	**initialize_dp(int nb_lines, int cols)
+{
+	int	**dp;
+	int	i;
+
+	dp = (int **)malloc(nb_lines * sizeof(int *));
+	i = 0;
+	while (i < nb_lines)
 	{
 		dp[i] = (int *)malloc(cols * sizeof(int));
 		i++;
 	}
+	return (dp);
+}
 
-	int max_size = 0;
-	int max_i = 0;
-	int max_j = 0;
+void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i, int *max_j)
+{
+	int	i;
+	int	j;
+
+	i = 0;
 	while (i < data.nb_lines)
 	{
-		while (j < cols)
+		j = 0;
+		while (j < ft_strlen(lines[1]))
 		{
 			if (lines[i + 1][j] == data.empty)
 			{
@@ -97,19 +117,26 @@ char	**process_map(char *map) {
 					dp[i][j] = 1;
 				else
 					dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
-				if (dp[i][j] > max_size)
+				if (dp[i][j] > *max_size)
 				{
-					max_size = dp[i][j];
-					max_i = i;
-					max_j = j;
+					*max_size = dp[i][j];
+					*max_i = i;
+					*max_j = j;
 				}
-			} 
+			}
 			else
 				dp[i][j] = 0;
 			j++;
 		}
 		i++;
 	}
+}
+
+void	fill_lines(char **lines, int **dp, t_args_data data, int max_size, int max_i, int max_j)
+{
+	int	i;
+	int	j;
+
 	i = max_i;
 	while (i > max_i - max_size)
 	{
@@ -121,5 +148,4 @@ char	**process_map(char *map) {
 		}
 		i--;
 	}
-	return (lines);
 }
