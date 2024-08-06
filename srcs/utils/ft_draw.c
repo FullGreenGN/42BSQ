@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:39:12 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 15:49:24 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 17:39:30 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
