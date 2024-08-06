@@ -6,7 +6,7 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:54:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 16:32:44 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 16:40:59 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,22 @@ int main(int ac, char **av)
 
     if (ac < 2)
     {
-        write(2, "Usage: <file_path>\n", ft_strlen("Usage: %s <file_path>\n"));
+        base_str = stdin_to_string();
+		if (base_str == NULL)
+		{
+			write(2, "map error\n", ft_strlen("map error\n"));
+			return (1);
+		}
+		data = string_args(base_str, (t_args_data){0});
+		if (data.filler == 0)
+		{
+			write(2, "map error\n", ft_strlen("map error\n"));
+			return (1);
+		}
+		rmap = process_map(base_str, data);
+		end_str = malloc(ft_strlen(base_str) + 1);
+		end_str = ft_strjoin(rmap);
+		ft_putstr(&end_str[4 + data.nb_lines_size]);
         return (1);
     }
 	i = 1;
