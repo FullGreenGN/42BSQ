@@ -6,9 +6,14 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:25:53 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 16:28:34 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 16:34:38 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <bsq.h>
 
 ///////////////////////////////////////////////////////////////////
 // read from stdin
