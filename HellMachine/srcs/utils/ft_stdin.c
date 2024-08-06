@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stdin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yseguin <youvataque@icloud.com>            +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:25:53 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 17:56:18 by yseguin          ###   ########.fr       */
+/*   Updated: 2024/08/06 18:27:09 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	read_from_stdin(char *input, int buffer_size)
 	int		total_bytes;
 	int		i;
 
+	i = 0;
 	total_bytes = 0;
 	bytes_read = read(0, buffer, 1024);
 	while (bytes_read > 0)
