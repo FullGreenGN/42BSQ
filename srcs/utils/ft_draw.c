@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:39:12 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 15:30:51 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 15:49:24 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 ///////////////////////////////////////////////////////////////////
 // fill the lines with the filler character
-void	fill_lines(char **lines, t_args_data data, int max_size, int max_i, int max_j)
+void	fill_lines(char **lines, t_args_data data, t_map_data *map)
  {
  	int	i;
  	int	j;
 
- 	i = max_i;
- 	while (i > max_i - max_size)
+ 	i = map->max_i;
+ 	while (i > map->max_i - map->max_size)
  	{
- 		j = max_j;
- 		while (j > max_j - max_size)
+ 		j = map->max_j;
+ 		while (j > map->max_j - map->max_size)
  		{
  			lines[i + 1][j] = data.filler;
  			j--;
@@ -34,7 +34,7 @@ void	fill_lines(char **lines, t_args_data data, int max_size, int max_i, int max
 
 ///////////////////////////////////////////////////////////////////
 // fill the 2D array with the size of the biggest square
-void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i, int *max_j)
+void	fill_dp(int **dp, char **lines, t_args_data data, t_map_data *map)
  {
  	int	i;
  	int	j;
@@ -51,11 +51,11 @@ void	fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i
  					dp[i][j] = 1;
  				else
  					dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1;
- 				if (dp[i][j] > *max_size)
+ 				if (dp[i][j] > 	map[0].max_size)
  				{
- 					*max_size = dp[i][j];
- 					*max_i = i;
- 					*max_j = j;
+ 					map->max_size = dp[i][j];
+ 					map->max_i = i;
+ 					map->max_j = j;
  				}
  			}
  			else

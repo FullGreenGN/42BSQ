@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 15:29:59 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 15:49:01 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,17 @@ char	**process_map(char *str, t_args_data data)
 	char		**lines;
 	int			cols;
 	int			**dp;
-	int			max_size;
-	int			max_i;
-	int			max_j;
+	t_map_data	map_data = {0};
 
 	lines = ft_split(str, "\n");
 	cols = ft_strlen(lines[1]);
 	dp = initialize_dp(data.nb_lines, cols);
-	max_size = 0;
-	max_i = 0;
-	max_j = 0;
-	fill_dp(dp, lines, data, &max_size, &max_i, &max_j);
-	fill_lines(lines, data, max_size, max_i, max_j);
+	map_data.max_size = 0;
+	map_data.max_i = 0;
+	map_data.max_j = 0;
+
+	fill_dp(dp, lines, data, &map_data);
+	fill_lines(lines, data, &map_data);
 	return (lines);
 }
 

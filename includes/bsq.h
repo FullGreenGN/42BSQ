@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 15:31:01 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 15:46:39 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ typedef struct s_map_data
 	int				max_size;
 	int				max_i;
 	int				max_j;
-	int				nb_lines;
-	int				nb_cols;
 }					t_map_data;
 
 typedef struct s_result_pos
@@ -47,8 +45,8 @@ char			*ft_strcat(char *dest, char *src);
 int				ft_strlen(char *str);
 void			ft_putstr(char *str);
 void			ft_putchar(char c);
-void			fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i, int *max_j);
-void			fill_lines(char **lines, t_args_data data, int max_size, int max_i, int max_j);
+void			fill_dp(int **dp, char **lines, t_args_data data, t_map_data *map);
+void			fill_lines(char **lines, t_args_data data, t_map_data *map);
 int				ft_contain(char *str, char c);
 int				nb_word(char *str, char *charset);
 int				ft_atoi(const char *str);
