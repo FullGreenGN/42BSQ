@@ -6,7 +6,7 @@
 /*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:54:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/05 18:06:33 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 12:08:51 by seguinyanni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char			*file_to_string(const char *file_path);
 char			**ft_split(char *str, char *charset);
 int				overwrite_file_with_string(const char *file_path, char *file_content);
 t_args_data		string_args(char *strn, t_args_data data);
+char            **process_map(char *map);
 
 int main(int ac, char **av)
 {
@@ -28,12 +29,10 @@ int main(int ac, char **av)
         write(2, "Usage: <file_path>\n", ft_strlen("Usage: %s <file_path>\n"));
         return (1);
     }
-
-    char *str = file_to_string(av[1]);
-    //char **tab = ft_split(&str[5], "\n");
-    printf("str: %s\n", str);
-    t_args_data data = {0};
-    data = string_args(str, data);
-    printf("nb_lines: %d\n", data.nb_lines);
+    char **map = process_map(file_to_string(av[1]));
+    for (int i = 0; map[i]; i++)
+    {
+        printf("%s\n", map[i]);
+    }
     return (ac);
 }
