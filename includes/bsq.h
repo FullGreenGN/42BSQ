@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 14:47:21 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 15:31:01 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ typedef struct s_rgs_data
 
 typedef struct s_map_data
 {
-	int				*max_size;
-	int				*max_i;
-	int				*max_j;
+	int				max_size;
+	int				max_i;
+	int				max_j;
 	int				nb_lines;
 	int				nb_cols;
 }					t_map_data;
@@ -47,12 +47,9 @@ char			*ft_strcat(char *dest, char *src);
 int				ft_strlen(char *str);
 void			ft_putstr(char *str);
 void			ft_putchar(char c);
-void			fill_dp(int **dp, char **lines, t_args_data data,
-					t_map_data map_data);
-void			fill_lines(char **lines, t_args_data data, t_map_data map_data);
+void			fill_dp(int **dp, char **lines, t_args_data data, int *max_size, int *max_i, int *max_j);
+void			fill_lines(char **lines, t_args_data data, int max_size, int max_i, int max_j);
 int				ft_contain(char *str, char c);
-int				overwrite_file_with_string(const char *file_path,
-					char *file_content);
 int				nb_word(char *str, char *charset);
 int				ft_atoi(const char *str);
 int				min(int a, int b, int c);

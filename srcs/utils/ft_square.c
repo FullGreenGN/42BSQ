@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 15:23:52 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 15:29:59 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
