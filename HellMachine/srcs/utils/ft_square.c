@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seguinyannis <seguinyannis@student.42.f    +#+  +:+       +#+        */
+/*   By: yseguin <youvataque@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 15:49:01 by seguinyanni      ###   ########.fr       */
+/*   Updated: 2024/08/06 17:51:39 by yseguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	**process_map(char *str, t_args_data data)
 	char		**lines;
 	int			cols;
 	int			**dp;
-	t_map_data	map_data = {0};
+	t_map_data	map_data;
 
 	lines = ft_split(str, "\n");
 	cols = ft_strlen(lines[1]);
@@ -95,9 +95,7 @@ char	**process_map(char *str, t_args_data data)
 	map_data.max_size = 0;
 	map_data.max_i = 0;
 	map_data.max_j = 0;
-
 	fill_dp(dp, lines, data, &map_data);
 	fill_lines(lines, data, &map_data);
 	return (lines);
 }
-

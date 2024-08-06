@@ -3,20 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_int_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: yseguin <youvataque@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:30:55 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 12:44:23 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 17:53:22 by yseguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 ///////////////////////////////////////////////////////////////////
 // return the minimum of 3 integers
-int min(int a, int b, int c)
+int	min(int a, int b, int c)
 {
-	if (a < b) {
-		return (a < c) ? a : c;
-	} else {
-		return (b < c) ? b : c;
+	if (a < b)
+	{
+		if (a < c)
+			return (a);
+		return (c);
+	}
+	else
+	{
+		if (b < c)
+			return (b);
+		return (c);
 	}
 }

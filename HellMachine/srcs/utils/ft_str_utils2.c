@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: yseguin <youvataque@icloud.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:18:19 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 14:23:06 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 17:56:40 by yseguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,4 +139,3 @@ char	*ft_strjoin(char **map)
 	result[size + i] = '\0';
 	return (result);
 }
-
