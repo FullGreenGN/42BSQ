@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:39:12 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 14:41:56 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/06 15:23:30 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	fill_lines(char **lines, t_args_data data, t_map_data map_data)
 		i--;
 	}
 }
-
+///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 // fill the 2D array with the size of the biggest square
 void	fill_dp(int **dp, char **lines, t_args_data data, t_map_data map_data)
