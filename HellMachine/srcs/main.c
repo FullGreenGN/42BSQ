@@ -3,17 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yseguin <youvataque@icloud.com>            +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:54:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 18:14:24 by yseguin          ###   ########.fr       */
+/*   Updated: 2024/08/07 07:26:53 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include "../includes/bsq.h"
+
+char	*ft_realloc(char *buff, char *fullbuffer, int len)
+{
+  char	*new;
+  int	i;
+  int	compteur;
+
+  compteur = 0;
+  i = 0;
+  new = malloc(sizeof(*new) * (ft_strlen(fullbuffer) + len + 1));
+  if (new == NULL)
+    exit(84);
+  while (fullbuffer != NULL && fullbuffer[i] != '\0')
+    {
+      new[i] = fullbuffer[i];
+      i = i + 1 ;
+    }
+  free(fullbuffer);
+  while (buff[compteur] != '\0')
+    {
+      new[i] = buff[compteur];
+      i = i + 1;
+      compteur = compteur + 1;
+    }
+  new[i] = '\0';
+  return (new);
+}
 
 int	to_execute_main(char *base_str, t_args_data *data, char **rmap, char *e_str)
 {
@@ -44,29 +72,28 @@ void	show_result(int i, int ac, char *end_str, t_args_data *data)
 
 int	main(int ac, char **av)
 {
-	t_args_data	data[1];
-	char		*base_str;
-	char		*end_str;
-	char		**rmap;
-	int			i;
+	char	buff[4096 + 1];
+  	int		len;
+  	char	*extend;
+  	int		fd;
+	t_args_data	data;
 
-	end_str = "";
-	rmap = NULL;
-	data->nb_lines_size = 0;
-	if (ac < 2)
+	ft_test_argv(ac);
+	extend = NULL;
+	ft_zero(buff, 4096);
+	fd = open(av[1], O_RDONLY);
+	ft_find_file(fd);
+	while ((len = read(fd, buff, 4096)) > 0)
 	{
-		base_str = stdin_to_string();
-		if (to_execute_main(base_str, data, rmap, end_str))
-			return (1);
+		buff[len] = 0;
+		extend = ft_realloc(buff, extend, len);
+		data = (t_args_data){0};
+		ft_zero(buff, 4096);
 	}
-	i = 1;
-	while (i < ac)
-	{
-		base_str = file_to_string(av[i]);
-		if (to_execute_main(base_str, data, rmap, end_str))
-			return (1);
-		show_result(i, ac, end_str, data);
-		i++;
-	}
+	ft_test_read(len);
+	ft_test_file(extend);
+	to_execute_main(extend, &data, NULL, NULL);
+	free(extend);
+	close(fd);
 	return (0);
 }

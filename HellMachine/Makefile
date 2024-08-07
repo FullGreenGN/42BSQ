@@ -14,6 +14,7 @@ SRCS		=	srcs/main.c \
 					srcs/utils/ft_int_utils.c \
 					srcs/utils/ft_draw.c \
 					srcs/utils/ft_stdin.c \
+					srcs/utils/ft_segfault.c \
 
 OBJS		=	$(SRCS:.c=.o)
 

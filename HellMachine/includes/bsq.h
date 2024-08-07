@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 17:32:43 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 16:28:27 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/07 07:21:12 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ char			**ft_split(char *str, char *charset);
 char			*ft_strcat(char *dest, char *src);
 char			*stdin_to_string(void);
 int				ft_strlen(char *str);
+void			ft_test_argv(int);
+void			ft_find_file(int);
+void			ft_test_file(char*);
+void			ft_test_char(char);
+void			ft_empty_file(char);
+void			ft_test_read(int read);
+void			ft_zero(char *buff, int size);
 void			ft_putstr(char *str);
 void			ft_putchar(char c);
 void			fill_dp(int **dp, char **lines, t_args_data data,
