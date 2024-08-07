@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yseguin <youvataque@icloud.com>            +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 16:36:27 by seguinyanni       #+#    #+#             */
-/*   Updated: 2024/08/06 17:51:39 by yseguin          ###   ########.fr       */
+/*   Updated: 2024/08/07 08:33:47 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string.h>
 #include <bsq.h>
 
+/*
 ///////////////////////////////////////////////////////////////////
 // create a square of x * y with char c
 char	**ft_square(char **map, int x, int y, char c)
@@ -99,3 +100,4 @@ char	**process_map(char *str, t_args_data data)
 	fill_lines(lines, data, &map_data);
 	return (lines);
 }
+*/

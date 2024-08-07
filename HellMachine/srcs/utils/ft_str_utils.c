@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:28:02 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 23:00:48 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/07 08:18:59 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,30 @@ void	ft_putchar(char c)
 // count size of string (in bytes)
 int	ft_strlen(char *str)
 {
-	int   i;
+	int	i;
 
 	i = 0;
 	if (str == NULL)
-    	return (0);
-  	while (str[i] != '\0')
-    {
-      i = i + 1;
-    }
-  	return (i);
+		return (0);
+	while (str[i] != '\0')
+	{
+		i = i + 1;
+	}
+	return (i);
 }
 
 ///////////////////////////////////////////////////////////////////
 // write string to stdout
 void	ft_putstr(char *str)
 {
-	write(1, str, ft_strlen(str));
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
 }
 
 ///////////////////////////////////////////////////////////////////

@@ -3,75 +3,175 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yseguin <youvataque@icloud.com>            +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:39:12 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/06 17:51:05 by yseguin          ###   ########.fr       */
+/*   Updated: 2024/08/07 08:30:40 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdlib.h>
 #include <bsq.h>
 
-///////////////////////////////////////////////////////////////////
-// fill the lines with the filler character
-void	fill_lines(char **lines, t_args_data data, t_map_data *map)
+void	ft_bufftotab(char *buff, char **tab, int a, int b)
 {
-	int		i;
-	int		j;
-
-	i = map->max_i;
-	while (i > map->max_i - map->max_size)
-	{
-		j = map->max_j;
-		while (j > map->max_j - map->max_size)
-		{
-			lines[i + 1][j] = data.filler;
-			j--;
-		}
-		i--;
-	}
-}
-
-///////////////////////////////////////////////////////////////////
-// split of fill_dp for nom
-void	to_execute(int **dp, int i, int j, t_map_data *map)
-{
-	if (i == 0 || j == 0)
-		dp[i][j] = 1;
-	else
-	{
-		dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-		dp[i][j] += 1;
-	}
-	if (dp[i][j] > map->max_size)
-	{
-		map->max_size = dp[i][j];
-		map->max_i = i;
-		map->max_j = j;
-	}
-}
-
-///////////////////////////////////////////////////////////////////
-// fill the 2D array with the size of the biggest square
-void	fill_dp(int **dp, char **lines, t_args_data data, t_map_data *map)
-{
-	int		i;
-	int		j;
+	int	i;
 
 	i = 0;
-	while (i < data.nb_lines)
+	while (buff[i] != '\n' && buff[i] != '\0')
+		i = i + 1;
+	i = i + 1;
+	ft_empty_file(buff[i + 1]);
+	while (buff[i] != '\0')
 	{
-		j = 0;
-		while (j < ft_strlen(lines[1]))
+		ft_test_char(buff[i]);
+		if (buff[i] == '\n' || buff[i] == '\0')
 		{
-			if (lines[i + 1][j] == data.empty)
-			{
-				to_execute(dp, i, j, map);
-			}
-			else
-				dp[i][j] = 0;
-			j++;
+			tab[a][b] = '\0';
+			a = a + 1;
+			b = 0;
 		}
-		i++;
+		else
+		{
+			tab[a][b] = buff[i];
+			b = b + 1;
+		}
+		i = i + 1;
+	}
+}
+
+///////////////////////////////////////////////////////////////////
+// Find the biggest square in the map and replace it with 'x'
+int	test_tab(int tmp, char **tab, int width, int lenght)
+{
+	int	i;
+
+	i = 1;
+	if (tab[lenght][width] != '.')
+		return (0);
+	while (i < tmp)
+	{
+		if (tab[lenght][width + i] != '.' || tab[lenght + i][width] != '.')
+			return (0);
+		i = i + 1;
+	}
+	return (1);
+}
+
+///////////////////////////////////////////////////////////////////
+// Find the biggest square in the map and replace it with 'x'
+void	ft_remp_tab(char **tab, int posx, int posy, int count)
+{
+	int	i;
+	int	save;
+	int	a;
+
+	a = 0;
+	save = count - 1;
+	i = count - 1;
+	while (i > 0)
+	{
+		while (save > 0)
+		{
+			tab[posx][posy - a] = 'x';
+			a = a + 1;
+			save = save - 1;
+		}
+		save = count - 1;
+		a = 0;
+		posx = posx - 1;
+		i = i - 1;
+	}
+}
+
+///////////////////////////////////////////////////////////////////
+// Find the biggest square in the map and replace it with 'x'
+int	ft_remp_tab1(char **tab)
+{
+	int	a;
+	int	b;
+
+	a = 0;
+	b = 0;
+	while (tab[a][b] != 0)
+	{
+		if (tab[a][b] == '.')
+		{
+			tab[a][b] = 'x';
+			return (0);
+		}
+		else if (tab[a][b] == 'o')
+			b = b + 1;
+		else
+		{
+			b = 0;
+			a = a + 1;
+		}
+	}
+	return (0);
+}
+
+///////////////////////////////////////////////////////////////////
+void	ft_search2(char **tab, int *lenght, int *width, t_bsq *bsq)
+{
+	bsq->tmpwidth = *width;
+	bsq->tmplenght = *lenght;
+	bsq->tmp = 1;
+	while (*lenght >= 0 && *width >= 0 && test_tab(bsq->tmp, tab, *width,
+													*lenght) == 1)
+	{
+		*lenght = *lenght - 1;
+		*width = *width - 1;
+		bsq->tmp = bsq->tmp + 1;
+	}
+	if (bsq->tmp >= bsq->count)
+	{
+		bsq->count = bsq->tmp;
+		bsq->posx = *lenght + bsq->count - 1;
+		bsq->posy = *width + bsq->count - 1;
+	}
+	*width = bsq->tmpwidth;
+	*lenght = bsq->tmplenght;
+	*width = *width - 1;
+}
+
+///////////////////////////////////////////////////////////////////
+void	ft_search(char **tab, int *lenght, int *width, t_bsq *bsq)
+{
+	if (tab[*lenght][*width] == 'o' && *width != 0)
+		*width = *width - 1;
+	else if (*width == 0)
+	{
+		*lenght = *lenght - 1;
+		*width = bsq->wid;
+	}
+	else if (tab[*lenght][*width] == '.')
+		ft_search2(tab, lenght, width, bsq);
+	bsq->i = bsq->i + 1;
+}
+
+///////////////////////////////////////////////////////////////////
+void	redirect(char **tab, int lenght, int width)
+{
+	t_bsq	bsq;
+
+	bsq.len = lenght;
+	bsq.wid = width;
+	bsq.count = 0;
+	bsq.tmp = 0;
+	bsq.i = 0;
+	while (bsq.i < (bsq.len + 1) * (bsq.wid + 1))
+		ft_search(tab, &lenght, &width, &bsq);
+	if (bsq.count > 2)
+		ft_remp_tab(tab, bsq.posx, bsq.posy, bsq.count);
+	else
+		ft_remp_tab1(tab);
+	bsq.i = 0;
+	while (bsq.i <= bsq.len)
+	{
+		ft_putstr(tab[bsq.i]);
+		ft_putchar('\n');
+		bsq.i = bsq.i + 1;
 	}
 }
